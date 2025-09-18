@@ -1,14 +1,14 @@
-# Isidro Butaslac III, PhD - Academic CV
+# Md Mustafizur Rahman - Academic CV
 
 This CV reflects my academic journey.
 
 ## Download
 
-![Workflow name](https://github.com/sid410/Butaslac-CV/actions/workflows/latex_build.yml/badge.svg?branch=main)
+![Workflow name](https://github.com/mustafizur-r/mustafizur_cv/actions/workflows/latex_build.yml/badge.svg?branch=main)
 
 Changes are automatically updated with CI/CD, and the latest version is always accessible through the following link:
 
-https://github.com/sid410/Butaslac-CV/releases/download/latest-release/butaslac_cv.pdf
+https://github.com/mustafizur-r/mustafizur_cv/releases/download/latest-release/mustafizur_cv.pdf
 
 ## How to Compile
 
