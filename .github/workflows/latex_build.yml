@@ -20,8 +20,8 @@ jobs:
         run: |
           mkdir -p ${{ github.workspace }}/build
           docker run --rm -v ${{ github.workspace }}:/workdir texlive/texlive /bin/sh -c "\
-            pdflatex -output-directory=/workdir/build /workdir/butaslac_cv.tex && \
-            pdflatex -output-directory=/workdir/build /workdir/butaslac_cv.tex"
+            pdflatex -output-directory=/workdir/build /workdir/mustafizur_cv.tex && \
+            pdflatex -output-directory=/workdir/build /workdir/mustafizur_cv.tex"
 
       - name: Update Latest Release with the new PDF
         uses: ncipollo/release-action@v1
@@ -29,6 +29,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: latest-release
           name: Latest Release
-          artifacts: build/butaslac_cv.pdf
+          artifacts: build/mustafizur_cv.pdf
           allowUpdates: true
           commit: main
