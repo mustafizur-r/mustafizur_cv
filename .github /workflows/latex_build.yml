@@ -1,0 +1,34 @@
+name: Build LaTeX and Publish Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Ensures the action checks out all branches and tags for proper tagging
+
+      - name: Compile LaTeX Document using Docker
+        run: |
+          mkdir -p ${{ github.workspace }}/build
+          docker run --rm -v ${{ github.workspace }}:/workdir texlive/texlive /bin/sh -c "\
+            pdflatex -output-directory=/workdir/build /workdir/butaslac_cv.tex && \
+            pdflatex -output-directory=/workdir/build /workdir/butaslac_cv.tex"
+
+      - name: Update Latest Release with the new PDF
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: latest-release
+          name: Latest Release
+          artifacts: build/butaslac_cv.pdf
+          allowUpdates: true
+          commit: main
