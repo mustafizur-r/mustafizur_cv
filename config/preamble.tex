@@ -1,8 +1,9 @@
 % Document Font and Encoding
 \usepackage[T1]{fontenc}       % Chooses T1 font encoding
 \input{glyphtounicode}         % Allows the PDF to be searchable and copyable
-
+\usepackage{ragged2e}
 \usepackage{wrapfig}          % Allows figures or tables to have text wrapped around them
+\usepackage{tabularx}
 \usepackage{changepage}       % Adjust margins for part of the document
 \usepackage[english]{babel}   % Multilingual support for English
 \usepackage{verbatim}         % Adds text verbatim
@@ -52,7 +53,7 @@
 \usepackage{lastpage}          % Reference for the last page
 \pagestyle{fancy}              % Sets the page style to fancy
 \fancyhf{}                     % Clears the header and footer
-\fancyfoot[L]{\textcolor{darkgray}{\footnotesize Butaslac CV \hfill Page \thepage\ of \pageref*{LastPage}}} % Custom footer
+\fancyfoot[L]{\textcolor{darkgray}{\footnotesize  \hfill Page \thepage\ of \pageref*{LastPage}}} % Custom footer
 \renewcommand{\headrulewidth}{0pt} % Removes the header line
 \renewcommand{\footrulewidth}{0pt} % Removes the footer line
 \setlength{\footskip}{14pt} % Adjusts the space from the bottom margin to the footer

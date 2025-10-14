@@ -19,7 +19,7 @@ To compile the CV from source with local LaTeX environment:
 2. Run the following command in your terminal:
 
    ```bash
-   pdflatex -output-directory=build butaslac_cv.tex
+   pdflatex -output-directory=build mustafizur_cv.tex
    ```
 
 To compile the CV from source with Docker:
@@ -27,5 +27,5 @@ To compile the CV from source with Docker:
 2. Run the following command in your terminal:
 
    ```bash
-   docker run --rm -v $PWD:/workdir texlive/texlive pdflatex -output-directory=/workdir/build /workdir/butaslac_cv.tex
+   docker run --rm -v $PWD:/workdir texlive/texlive pdflatex -output-directory=/workdir/build /workdir/mustafizur_cv.tex
    ```
