@@ -120,3 +120,29 @@
 % Adjust bullet styles for lists
 \renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% ---------- Helpers ----------
+\newcommand{\techsep}{\;|\allowbreak\;}
+\newcommand{\techlist}[1]{#1}
+
+% ---------- Research Entry (Title | Status on right, Advisors & Tech below) ----------
+% #1 Title
+% #2 Status (e.g., Ongoing Research)
+% #3 Advisors
+% #4 Tech stack (Python | Unity | …)
+\newcommand{\cvResearchHeading}[4]{%
+  \item
+  % Line 1: Title | Status
+  \begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & \textbf{\textit{#2}} \\
+  \end{tabular*}
+
+  % Line 2: Advisors
+  {\small \textit{Advisors:} #3}\\[-2pt]
+
+  % Line 3: Tech (separate line)
+  {\small \textbf{Tech:} #4}
+
+  \vspace{-10pt} % adjust spacing
+}
+
