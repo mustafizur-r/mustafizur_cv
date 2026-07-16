@@ -28,25 +28,60 @@
 	\vspace{-20pt}
 }
 
+% % Heading for projects
+% \newcommand{\cvProjectHeading}[2]{
+% 	\item\begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
+% 		\small#1 & \textbf{\small #2}\\
+% 	\end{tabular*}
+% 	\vspace{-20pt}
+% }
 % Heading for projects
-\newcommand{\cvProjectHeading}[2]{
-	\item\begin{tabular*}{1.0\textwidth}{l@{\extracolsep{\fill}}r}
-		\small#1 & \textbf{\small #2}\\
-	\end{tabular*}
-	\vspace{-20pt}
+\newcommand{\cvProjectHeading}[2]{%
+  \item
+  \begin{tabular*}{\linewidth}[t]{@{}l@{\extracolsep{\fill}}r@{}}
+    \small #1 & \textbf{\small #2}
+  \end{tabular*}
+  \vspace{-20pt}
 }
 
+\newcommand{\IfNotEmpty}[2]{%
+  \ifstrempty{#1}{}{#2}%
+}
 %-------------------------
 % List Formatting Commands
 %-------------------------
 
+% % Start and end of a subheading list
+% \newcommand{\cvSubHeadingListStart}{\begin{itemize}[leftmargin=0.0em, label={}]}
+		% \newcommand{\cvSubHeadingListEnd}{\end{itemize}}
 % Start and end of a subheading list
-\newcommand{\cvSubHeadingListStart}{\begin{itemize}[leftmargin=0.0em, label={}]}
-		\newcommand{\cvSubHeadingListEnd}{\end{itemize}}
+\newcommand{\cvSubHeadingListStart}{%
+  \begin{itemize}[leftmargin=0pt, label={}, itemsep=5pt, topsep=0pt]
+}
+\newcommand{\cvSubHeadingListEnd}{%
+  \end{itemize}
+}
+
 
 % Start and end of an item list
-\newcommand{\cvItemListStart}{\begin{itemize}}
-		\newcommand{\cvItemListEnd}{\end{itemize}\vspace{-12pt}}
+\newcommand{\cvItemListStart}{%
+  \begin{itemize}[
+    leftmargin=2.2em,
+    label=\textbullet,
+    itemsep=1pt,
+    topsep=3pt,
+    parsep=0pt,
+    partopsep=0pt
+  ]
+}
+\newcommand{\cvItemListEnd}{%
+  \end{itemize}
+  \vspace{-4pt}
+}
+
+% % Start and end of an item list
+% \newcommand{\cvItemListStart}{\begin{itemize}}
+% 		\newcommand{\cvItemListEnd}{\end{itemize}\vspace{-12pt}}
 
 %-------------------------
 % Publication Formatting Commands
@@ -61,8 +96,18 @@
 % 6 - Date
 % 7 - hyperlink
 % 8 - DOI
-\newcommand{\cvJournal}[8]{
-	\item\small{{#1}, ``#2,'' \textit{#3}, #4, #5, #6, \texttt{\footnotesize doi:\href{#7}{{#8}}}}
+% \newcommand{\cvJournal}[8]{
+% 	\item\small{{#1}, ``#2,'' \textit{#3}, #4, #5, #6, \texttt{\footnotesize \href{#7}{{#8}}}}
+% }
+\newcommand{\cvJournal}[8]{%
+\item\small
+{#1},
+``#2,''
+\textit{#3}%
+\IfNotEmpty{#4}{, #4}%
+\IfNotEmpty{#5}{, #5}%
+\IfNotEmpty{#6}{, #6}%
+\IfNotEmpty{#8}{, \texttt{\footnotesize\href{#7}{#8}}}
 }
 
 % Formatting for conference proceedings
@@ -74,10 +119,20 @@
 % 6 - Page
 % 7 - hyperlink
 % 8 - DOI
-\newcommand{\cvConference}[8]{
-	\item\small{{#1}, ``#2,'' in \textit{#3}, #4, #5, #6, \texttt{\footnotesize doi:\href{#7}{{#8}}}}
+% \newcommand{\cvConference}[8]{
+% 	\item\small{{#1}, ``#2,'' in \textit{#3}, #4, #5, #6, \texttt{\footnotesize \href{#7}{{#8}}}}
+% }
+\newcommand{\cvConference}[8]{%
+\item\small
+{#1},
+``#2,''
+in \textit{#3}%
+\IfNotEmpty{#4}{, #4}%
+\IfNotEmpty{#5}{, #5}%
+\IfNotEmpty{#6}{, #6}%
+\IfNotEmpty{#8}{, \texttt{\footnotesize\href{#7}{#8}}}
 }
-
+	% \item\small{{#1}, ``#2,'' in \textit{#3}, #4, Eds. #5, #6, #7, \texttt{\footnotesize doi:\href{#8}{{#9}}}}
 
 % Formatting for conference proceedings with Editors (special w/ book)
 % 1 - Author
@@ -138,11 +193,19 @@
   \end{tabular*}
 
   % Line 2: Advisors
-  {\small \textit{Advisors:} #3}\\[-2pt]
+  {\small \textit{\textbf{Supervisor:}} #3}\\[-2pt]
 
   % Line 3: Tech (separate line)
-  {\small \textbf{Tech:} #4}
+  {\small \textbf{Key Technologies:} #4}
 
   \vspace{-10pt} % adjust spacing
 }
+
+
+
+
+
+
+
+
 

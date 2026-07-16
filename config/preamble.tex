@@ -27,6 +27,7 @@
 \usepackage{graphicx}                    % Enhanced support for graphics
 \definecolor{darkgray}{gray}{0.4}        % Custom color definition
 
+\usepackage{etoolbox}
 % Hyperlinks
 \usepackage[hidelinks]{hyperref} % Provides LaTeX the ability to create hyperlinks
 \usepackage{makecell}
@@ -54,7 +55,7 @@
 \usepackage{lastpage}          % Reference for the last page
 \pagestyle{fancy}              % Sets the page style to fancy
 \fancyhf{}                     % Clears the header and footer
-\fancyfoot[L]{\textcolor{darkgray}{\footnotesize  \hfill Page \thepage\ of \pageref*{LastPage}}} % Custom footer
+% \fancyfoot[L]{\textcolor{darkgray}{\footnotesize  \hfill Page \thepage\ of \pageref*{LastPage}}} % Custom footer
 \renewcommand{\headrulewidth}{0pt} % Removes the header line
 \renewcommand{\footrulewidth}{0pt} % Removes the footer line
 \setlength{\footskip}{14pt} % Adjusts the space from the bottom margin to the footer
